@@ -1,0 +1,399 @@
+/* main */
+.flex {
+    padding: 10px;
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .flex {
+        margin: auto;
+        flex-direction: column;
+    }
+}
+
+.shop_inner {
+    width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .shop_inner {
+        margin: auto;
+        width: 80%;
+    }
+}
+
+.header_items {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* ハンバーガーボタン */
+#btn {
+    position: fixed;
+    top: 20px;
+    left: 40px;
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+    padding: 5px;
+    border: 3px solid #0051FF;
+    border-radius: 5px;
+    background: #0051FF;
+    box-shadow: 4px 4px 5px #C0C0C0;
+}
+
+/* ボーダー */
+#btn span {
+    display: block;
+    background-color: #ffff;
+    width: 36px;
+    height: 2px;
+    transition: all 0.5s ease;
+}
+
+#btn span:nth-of-type(1) {
+    width: 40%;
+}
+
+#btn span:nth-of-type(2) {
+    width: 80%;
+}
+
+#btn span:nth-of-type(3) {
+    width: 20%;
+}
+
+/* クリックしたときのbarの動き */
+#btn.on span {
+    background-color: #ffff;
+    width: 100%;
+}
+
+#btn.on span:nth-of-type(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+#btn.on span:nth-of-type(2) {
+    transform: scale(0);
+}
+
+#btn.on span:nth-of-type(3) {
+    transform: translateY(-12px) rotate(-45deg);
+}
+
+/* ハンバーガーメニューの中身 */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #F5F5F5;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease;
+    top: -1500px;
+    z-index: 5;
+}
+
+nav.on {
+    top: 0px;
+}
+
+@media screen and (max-width: 768px) {
+    nav.on {
+        width: 80%;
+    }
+}
+
+nav button {
+    color: #0051FF;
+    text-decoration: none;
+    margin: 15px auto;
+    border: none;
+    height: 75px;
+    display: inline-block;
+    background-color: #F5F5F5;
+    font-size: 50px;
+    padding: 0;
+    font-weight: lighter;
+}
+
+nav button:hover {
+    border-bottom: 1px solid #ffff;
+}
+
+/* タイトル */
+.header_items-ttl {
+    color: #0051FF;
+    margin: 0 0 0 100px;
+    padding: 10px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .header_items-ttl {
+        font-size: 15px;
+        margin: 0 0 0 50px;
+    }
+}
+
+.form_inner {
+    width: 50%;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    background-color: #0051FF;
+}
+
+@media screen and (max-width: 768px) {
+    .form_inner {
+        width: 75%;
+        margin: auto;
+        background-color: #0051FF;
+        border-radius: 5px;
+    }
+}
+
+.flex_name,
+.flex_tag {
+    display: flex;
+}
+
+.flex_name {
+    height: 80px;
+}
+
+.return_btn {
+    height: 36px;
+    width: 36px;
+    border-radius: 5px;
+    box-shadow: 5px 4px 5px #C0C0C0;
+    margin: 22px 0 22px 0;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.shop_name {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 36px;
+    margin: 0 0 0 15px;
+}
+
+.card_img img {
+    width: 100%;
+}
+
+.tag_area {
+    margin-right: 10px;
+}
+
+.detail_shop {
+    margin-top: 0;
+
+}
+
+.form_inner-items {
+    background-color: #0051FF;
+    padding: 10px 30px;
+    border-radius: 5px 5px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+    .form_inner-items {
+        padding: 10px 15px;
+    }
+}
+
+.ttl_book {
+    color: #ffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.book_item {
+    width: 100%;
+}
+
+.input_date {
+    width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .input_date {
+        width: 100%;
+    }
+}
+
+.book_item-date,
+.book_item-time,
+.book_item-number {
+    margin-bottom: 10px;
+}
+
+.input_decoration {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding: 5px 10px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+    border-radius: 5px;
+    height: 34px;
+}
+
+.icon_del::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    /* デフォルトのアイコンの表示を消し、機能を残す */
+}
+
+.input_time {
+    width: 90%;
+    background-image: url(../img/arrow-icon.svg);
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .input_time {
+        width: 100%;
+    }
+}
+
+.book_item-time {
+    position: relative;
+}
+
+.book_item-time img {
+    transform: rotate(180deg);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 7px;
+    right: 65px;
+}
+
+.input_number {
+    width: 90%;
+    -webkit-appearance: none;
+    appearance: none;/* デフォルトの矢印を無効 */
+    background-image: url(../img/arrow-icon.svg);
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .input_number {
+        width: 100%;
+    }
+}
+
+.input_number::-ms-expand {
+    display: none;/* デフォルトの矢印を無効（IE用） */
+}
+
+.scrollable_container {
+    max-height: 330px;
+    overflow-y: auto;
+}
+
+.confirm_table-inner {
+    background-color: #1E90FF;
+    padding: 20px 20px;
+    margin: 0 auto 10px;
+    border-radius: 5px;
+    width: 90%;
+}
+
+@media screen and (max-width: 768px) {
+    .confirm_table-inner {
+        width: 90%;
+    }
+}
+
+.confirm_table-row {
+    width: 100%;
+}
+
+.confirm_table-header {
+    color: white;
+    text-align: left;
+    padding: 5px 10px 5px 20px;
+    width: 40%;
+}
+
+@media screen and (max-width: 768px) {
+    .confirm_table-header {
+        padding: 5px 10px 5px 5px;
+        font-size: 13px;
+    }
+}
+
+.confirm_table-text {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    width: 60%;
+}
+
+@media screen and (max-width: 768px) {
+    .confirm_table-text {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 13px;
+    }
+}
+
+.form_btn {
+    background-color: #0000FF;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 5px 5px;
+}
+
+.form_button-submit {
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    appearance: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.error_msg {
+    color: red;
+    margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .error_msg {
+        font-size: 13px;
+    }
+}

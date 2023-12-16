@@ -1,0 +1,382 @@
+/* body */
+body {
+    background-color: #F5F5F5;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* header */
+.header_inner {
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .header_inner {
+        flex-direction: column;
+    }
+}
+
+.header_items {
+    display: flex;
+    width: 50%;
+}
+
+@media screen and (max-width: 480px) {
+    .header_items {
+        width: 100%;
+    }
+}
+
+/* ハンバーガーボタン */
+#btn {
+    position: fixed;
+    top: 10px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+    padding: 5px;
+    border: 3px solid #0051FF;
+    border-radius: 5px;
+    background: #0051FF;
+    box-shadow: 4px 4px 5px #C0C0C0;
+}
+
+/* ボーダー */
+#btn span {
+    display: block;
+    background-color: #ffff;
+    width: 36px;
+    height: 2px;
+    transition: all 0.5s ease;
+}
+
+#btn span:nth-of-type(1) {
+    width: 40%;
+}
+
+#btn span:nth-of-type(2) {
+    width: 80%;
+}
+
+#btn span:nth-of-type(3) {
+    width: 20%;
+}
+
+
+/* クリックしたときのbarの動き */
+#btn.on span {
+    background-color: #ffff;
+    width: 100%;
+}
+
+#btn.on span:nth-of-type(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+#btn.on span:nth-of-type(2) {
+    transform: scale(0);
+}
+
+#btn.on span:nth-of-type(3) {
+    transform: translateY(-12px) rotate(-45deg);
+}
+
+/* ハンバーガーメニューの中身 */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #F5F5F5;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease;
+    top: -1500px;
+    z-index: 5;
+}
+
+nav.on {
+    top: 0px;
+}
+
+nav button {
+    color: #0051FF;
+    text-decoration: none;
+    margin: 15px auto;
+    border: none;
+    height: 75px;
+    display: inline-block;
+    background-color: #F5F5F5;
+    font-size: 50px;
+    padding: 0;
+    font-weight: lighter;
+}
+
+nav button:hover {
+    border-bottom: 1px solid #ffff;
+}
+
+/* タイトル */
+.header_items-ttl {
+    color: #0051FF;
+    padding: 10px 0 10px 0;
+    margin: 0 0 0 100px;
+}
+
+h1 {
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .header_items-ttl {
+        font-size: 15px;
+        margin: 0 0 0 80px;
+    }
+}
+
+/* 検索バー */
+.search_items {
+    display: flex;
+    border: 0.5px solid rgb(174, 174, 174);
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px #C0C0C0;
+    padding: 10px 10px;
+    width: 60%;
+    height: 60px;
+    align-items: center;
+    margin: 0 0 0 auto;
+    font-size: 13px;
+}
+
+@media screen and (max-width: 768px) {
+    .search_items {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search_items {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.search_items-area {
+    width: 20%;
+}
+
+.search_items-genre {
+    width: 25%;
+}
+
+.search_items-text {
+    width: 55%;
+}
+
+.search_decoration-select {
+    border: none;
+    outline: none;
+    background-color: #F5F5F5;
+    background-image: url("../img/arrow-icon.svg");
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.search_decoration-area {
+    background-position: left 65px center;
+}
+
+@media screen and (max-width: 768px) {
+    .search_decoration-area {
+        background-position: left 60px center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search_decoration-area {
+        background-position: left 50px center;
+        font-size: 10px;
+    }
+}
+
+.search_decoration-genre {
+    background-position: left 85px center;
+}
+
+@media screen and (max-width: 768px) {
+    .search_decoration-genre {
+        background-position: left 75px center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search_decoration-genre {
+        background-position: left 60px center;
+        font-size: 10px;
+    }
+}
+
+.search_items-area,
+.search_items-genre {
+    display: flex;
+    margin-right: 10px;
+    border-right: 1px solid rgb(174, 174, 174);
+}
+
+.search_items-ttl {
+    margin: 0;
+}
+
+.search_items-text {
+    padding: 0;
+}
+
+.search_items-text img{
+    width: 25px;
+    height: 25px;
+}
+
+@media screen and (max-width: 480px) {
+    .search_items-text img {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+.search_decoration-input {
+    border: none;
+    outline: none;
+    background-color: #F5F5F5;
+    padding: 0;
+    width: 80%;
+}
+
+@media screen and (max-width: 480px) {
+    .search_decoration-input {
+        font-size: 10px;
+    }
+}
+
+/* selectタグの矢印削除 */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* selectタグの矢印削除（ie対応） */
+select::-ms-expand {
+    display: none;
+}
+
+/* main */
+.flex_item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .flex_item {
+        flex-direction: column;
+    }
+}
+
+.shop_card {
+    width: 300px;
+    box-shadow: 4px 4px 5px #C0C0C0;
+    border-radius: 10px;
+    margin: 15px 10px 15px 0;
+}
+
+@media screen and (max-width: 480px) {
+    .shop_card {
+        margin: 0 20px 20px auto;
+    }
+}
+
+.flex_item::before {
+    display: block;
+    content: "";
+    width: 300px;
+    order: 1;
+}
+
+.flex_item::after {
+    display: block;
+    content: "";
+    width: 300px;
+}
+
+.card_img img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.card_content {
+    padding: 15px 25px;
+}
+
+.shop_name {
+    font-size: 25px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tag {
+    font-size: 14px;
+    margin: 0;
+}
+
+.tag_area,
+.tag_genre {
+    display: inline-block;
+    margin: 0;
+}
+
+.shop_btn {
+    color: white;
+    background-color: #0051FF;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 5px 15px;
+}
+
+.btn_flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.heart_btn img{
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.heart_btn {
+    border: none;
+    background-color: #F5F5F5;
+}
+
+
+
+
+

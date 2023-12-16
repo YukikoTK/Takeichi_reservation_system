@@ -1,0 +1,145 @@
+/* main */
+.form_inner {
+    padding: 10px;
+    width: 60%;
+    margin: 70px auto 0;
+}
+
+@media screen and (max-width: 768px) {
+    .form_inner {
+        margin: auto;
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form_inner {
+        margin: auto;
+        width: 90%;
+    }
+}
+
+.form_inner-items {
+    background-color: #0051FF;
+    padding: 10px 30px 20px 30px;
+    border-radius: 5px 5px 0 0;
+}
+
+.ttl_edit {
+    color: #ffff;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.edit_table-inner {
+    padding: 20px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.edit_table-row {
+    width: 100%;
+}
+
+.edit_table-header {
+    color: white;
+    text-align: left;
+    padding: 5px 10px 5px 20px;
+    width: 40%;
+}
+
+@media screen and (max-width: 480px) {
+    .edit_table-header {
+        padding: 5px 10px 5px 10px;
+    }
+}
+
+.edit_table-text {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    width: 100%;
+}
+
+.input_decoration {
+    padding: 5px 10px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+    border-radius: 5px;
+    height: 34px;
+}
+
+.input_date {
+    width: 100%;
+}
+
+.icon_del::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    /* デフォルトのアイコンの表示を消し、機能を残す */
+}
+
+.input_time {
+    width: 100%;
+    background-image: url(../img/arrow-icon.svg);
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+}
+
+.input_number {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    /* デフォルトの矢印を無効 */
+    background-image: url(../img/arrow-icon.svg);
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+}
+
+.input_number::-ms-expand {
+    display: none;
+    /* デフォルトの矢印を無効（IE用） */
+}
+
+.form_btn {
+    background-color: #0000FF;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 5px 5px;
+}
+
+.form_button-submit {
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    appearance: none;
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.error_msg {
+    color: red;
+    margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .error_msg {
+        font-size: 12px;
+    }
+}
+
+
+
+
+

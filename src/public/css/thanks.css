@@ -1,0 +1,57 @@
+/* main */
+.thanks_card {
+    border: 1px solid #ffff;
+    padding: 80.5px 30px;
+    border-radius: 5px;box-shadow: 4px 4px 5px #C0C0C0;
+    width: 60%;
+    margin: 30px auto 0;
+    background-color: #ffff;
+}
+
+@media screen and (max-width: 768px) {
+    .thanks_card {
+        margin: auto;
+        width: 85%;
+    }
+}
+
+.thanks_ttl {
+    text-align: center;
+}
+
+.thanks_msg {
+    font-size: 30px;
+    margin: 0 0 50px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .thanks_msg {
+        font-size: 18px;
+        margin: 0 0 50px 0;
+    }
+}
+
+.thanks_email {
+    font-size: 15px;
+    margin: 0 0 20px 0;
+}
+
+.send_msg {
+    color: red;
+    font-size: 15px;
+    text-align: center;
+}
+
+.btn {
+    text-align: center;
+}
+
+.resend_btn-decoration,
+.logout_btn-decoration {
+    color: white;
+    background-color: #0051FF;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    width: 160px;
+}

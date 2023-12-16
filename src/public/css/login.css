@@ -1,0 +1,73 @@
+/* main */
+.card {
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px #C0C0C0;
+    width: 50%;
+    height: 400px;
+    margin: 30px auto 0;
+    background-color: #ffff;
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        margin: auto;
+        width: 85%;
+    }
+}
+
+.card_inner {
+    height: 400px;
+}
+
+
+.ttl {
+    background-color: #0051FF;
+    border-radius: 5px 5px 0 0 ;
+    color: #ffff;
+    margin: 0;
+    padding: 20px 10px;
+}
+
+.card_items {
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+@media screen and (max-width: 768px) {
+    .error {
+        font-size: 12px;
+    }
+}
+
+.input_decoration {
+    border: none;
+    border-bottom: 1px solid #C0C0C0;
+    width: 70%;
+    outline: none;
+}
+
+.item_margin:not(:first-child) {
+    margin-top: 30px;
+}
+
+.btn_decoration {
+    text-align: right;
+    width: 80%;
+    margin: 30px auto 0 0;
+}
+
+.card_items-center {
+    margin-top: 50px;
+}
+
+.btn  {
+    border: none;
+    border-radius: 5px;
+    background-color: #0051FF;
+    padding: 10px 20px;
+    width: 100px;
+    color: #ffff;
+}

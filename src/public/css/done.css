@@ -1,0 +1,47 @@
+/* main */
+.thanks_card {
+    border: 1px solid #ffff;
+    padding: 80.5px 30px;
+    border-radius: 5px;box-shadow: 4px 4px 5px #C0C0C0;
+    width: 60%;
+    text-align: center;
+    margin: 30px auto 0;
+    background-color: #ffff;
+}
+
+@media screen and (max-width: 768px) {
+    .thanks_card {
+        margin: auto;
+        width: 85%;
+    }
+}
+
+.thanks_msg {
+    font-size: 30px;
+    margin: 0 0 50px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .thanks_msg {
+        font-size: 18px;
+        margin: 0 0 50px 0;
+    }
+}
+
+.return_btn  {
+    margin: 0 auto;
+    border: 1px;
+    border-radius: 5px;
+    background-color: #0051FF;
+    padding: 10px 20px;
+    width: 80px;
+
+
+}
+
+.return_link {
+    text-decoration: none;
+    color: #ffff;
+    
+
+}
