@@ -36,12 +36,7 @@ class ReviewController extends Controller
 
     return view('review', compact('bookRecords'));
   }
-
-
-
-
-
-
+  
     public function store(ReviewRequest $request)
   {
     $userId = Auth::id();

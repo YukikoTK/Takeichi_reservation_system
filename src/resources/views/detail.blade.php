@@ -106,8 +106,8 @@
                         </div>
                     </div>
                 </div>
+                <div class="scrollable_container">
                 @foreach($bookRecords as $bookRecord)
-                    <div class="scrollable_container">
                         <div class="confirm_table">
                             <table class="confirm_table-inner" id="bookTable">
                                 <tr class="confirm_table-row">
@@ -128,8 +128,8 @@
                                 </tr>
                             </table>
                         </div>
+                        @endforeach
                     </div>
-                @endforeach
                 <div class="form_btn">
                     <button class="form_button-submit" type="submit">予約する</button>
                 </div>

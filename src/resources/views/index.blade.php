@@ -48,6 +48,12 @@
                             <button class="menu_btn-items" type="submit">Mypage</button>
                         </form>
                     </li>
+                    <li>
+                        <a href="/owner">管理者はこちら</a>
+                    </li>
+                    <li>
+                        <a href="/manager">店舗代表者はこちら</a>
+                    </li>
                     @endguest
                 </ul>
             </nav>

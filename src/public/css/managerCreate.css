@@ -1,0 +1,118 @@
+.create-form_content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.create-form_heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.form {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .form {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        width: 90%;
+        text-align: left;
+    }
+}
+
+.form_group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 480px) {
+    .form_group {
+        flex-direction: column;
+    }
+}
+
+.form_error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
+
+.form_input-select {
+    height: 30px;
+    width: 500px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 480px) {
+    .form_input-select {
+        width: 100%;
+    }
+}
+
+.form_input-text input,
+.form_input-textarea textarea {
+    padding: 10px;
+    width: 500px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+}
+
+@media screen and (max-width: 480px) {
+    .form_input-text input,
+    .form_input-textarea textarea {
+        width: 100%;
+    }
+}
+
+.form_input-text input {
+    height: 40px;
+}
+
+.form_input-textarea textarea {
+    height: 180px;
+}
+
+.form_button {
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 480px) {
+    .form_button {
+       text-align: center;
+    }
+}
+
+.form_button-submit,
+.return_button {
+    padding: 10px;
+    width: 30%;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.button {
+    text-align: center;
+    margin: 30px auto;
+    width: 70%;
+}
+
+@media screen and (max-width: 768px) {
+    .button {
+        width: 90%;
+    }
+}
