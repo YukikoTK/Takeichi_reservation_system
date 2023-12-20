@@ -2,7 +2,7 @@
 
 ある企業のグループ会社の飲食店予約サービス
 
-![TOP画像](/path/to/TOP画像.jpg)
+![TOP画像](TOP画像.jpg)
 
 ## 作成した目的
 
@@ -53,117 +53,148 @@
 
 ## テーブル設計
 
-![テーブル設計](ath/to/テーブル設計.pdf)
+![テーブル設計](テーブル設計.pdf)
 
 ## ER図
 
-![ER図](ath/to/ER図.pdf)
+![ER図](ER図.pdf)
 
 ## 環境構築
 
 1. リポジトリの設定(以下をクローン)
 
-git@github.com:YukikoTK/Takeichi_reservation_system.git
+       git@github.com:YukikoTK/Takeichi_reservation_system.git
 
 2. Dockerの設定(開発環境構築)
 
-$ docker-compose up -d --build
+       $ docker-compose up -d --build
 
 3. Laravelのパッケージのインストール
 
-PHPコンテナにログイン
+     PHPコンテナにログイン
 
-$ docker-compose exec php bash
+       $ docker-compose exec php bash
 
-パッケージのインストール
+     パッケージのインストール
 
-$ composer install
+       $ composer install
 
 4. .envファイルの作成
 
-$ cp .env.example .env
+       $ cp .env.example .env
 
 5. 以下の通り.envファイルの修正
 
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=laravel_db
-DB_USERNAME=laravel_user
-DB_PASSWORD=laravel_pass
+       DB_CONNECTION=mysql
+
+       DB_HOST=mysql
+
+       DB_PORT=3306
+
+       DB_DATABASE=laravel_db
+
+       DB_USERNAME=laravel_user
+
+       DB_PASSWORD=laravel_pass
 
 6. アプリケーションを起動するためのキーを生成
 
-php artisan key:generate
+       php artisan key:generate
 
 7. モデルのマイグレーション、データ挿入
 
-php artisan migrate:fresh --seed
+       php artisan migrate:fresh --seed
 
 8. mailhog導入(下記をdocker-compose.ymlに追記)
 
-"volumes:
-  db-volume:
-  maildir: {}
+       volumes:
+   
+         db-volume:
+   
+         maildir: {}
 
-mail:
-    image: mailhog/mailhog
-    container_name: mailhog
-    ports:
-      - ""8025:8025""
-    environment:
-      MH_STORAGE: maildir
-      MH_MAILDIR_PATH: /tmp
-    volumes:
-      - maildir:/tmp"
+       mail:
+   
+           image: mailhog/mailhog
+   
+           container_name: mailhog
+   
+           ports:
+    
+             - "8025:8025"
+   
+           environment:
+   
+             MH_STORAGE: maildir
+   
+             MH_MAILDIR_PATH: /tmp
+   
+           volumes:
+   
+             - maildir:/tmp
 
 9. 下記コマンドを実行し、イメージの再ビルドとコンテナ起動
 
-$ docker-compose build
+        $ docker-compose build
 
-$ docker-compose up -d
+        $ docker-compose up -d
 
 10. 下記の通り.envを修正
 
-"MAIL_MAILER=smtp
-MAIL_HOST=mail
-MAIL_PORT=1025
-MAIL_USERNAME=null
-MAIL_PASSWORD=null
-MAIL_ENCRYPTION=null
-MAIL_FROM_ADDRESS=hello@example.com
-MAIL_FROM_NAME=""${APP_NAME}"""
+         MAIL_MAILER=smtp
+    
+         MAIL_HOST=mail
+    
+         MAIL_PORT=1025
+    
+         MAIL_USERNAME=null
+    
+         MAIL_PASSWORD=null
+    
+         MAIL_ENCRYPTION=null
+    
+         MAIL_FROM_ADDRESS=hello@example.com
+    
+         MAIL_FROM_NAME="${APP_NAME}"
 
 11. 以下にログインし、認証メールの受信を確認
 
-http://localhost:8025/
+       http://localhost:8025/
 
 12. 以下の認証済みユーザーにてログイン
 
 - 管理者
   
-name：管理者太郎
-email：taro@test.com
-password：password
+     name：管理者太郎
+  
+     email：taro@test.com
+  
+     password：password
 
 - 店舗代表者
   
-name：代表花子
-email：hanako@test.com
-password：password
+     name：代表花子
+  
+     email：hanako@test.com
+  
+     password：password
 
 - 利用者
   
-name：利用者五郎
-email：goro@test.com
-password：password
+     name：利用者五郎
+  
+     email：goro@test.com
+  
+     password：password
 
 ## その他
 
 ログインの有無により、アクセスできるページが異なる。
 
 ログイン無の場合は、以下のみアクセスが可能
-店舗一覧ページ（/）
-店舗詳細ページ（/deetail）：予約フォーム非表示
+
+ 店舗一覧ページ（/）
+
+ 店舗詳細ページ（/deetail）：予約フォーム非表示
 
 
