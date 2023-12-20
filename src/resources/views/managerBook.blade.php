@@ -23,22 +23,25 @@
             <th>予約確認</th>
         </tr>
         @foreach($shops as $shop)
-        <tr>
-            <td>{{ $shop->id }}</td>
-            <td>{{ $shop->shop }}</td>
-            <td>
-                <form action="{{ route('manager.edit') }}" action="GET">
-                    <input type="hidden" name="id" value="{{ $shop->id }}">
-                    <button type="submit">変更</button>
-                </form>
-            </td>
-            <td>
-                <button type="button" onclick="location.href='{{ route('manager.show', ['shop_id' => $shop->id]) }}' ">確認
-                </button>
-            </td>
-        </tr>
+            <tr>
+                <td>{{ $shop->id }}</td>
+                <td>{{ $shop->shop }}</td>
+                <td>
+                    <form action="{{ route('manager.edit') }}" action="GET">
+                        <input type="hidden" name="id" value="{{ $shop->id }}">
+                        <button type="submit">変更</button>
+                    </form>
+                </td>
+                <td>
+                    <button type="button" onclick="location.href='{{ route('manager.show', ['shop_id' => $shop->id]) }}' ">確認
+                    </button>
+                </td>
+            </tr>
         @endforeach
     </table>
     {{ $shops->links() }}
+    <div class="button">
+        <button class="return_button" onclick="location.href='/manager'">戻る</button>
+    </div>
 </div>
 @endsection

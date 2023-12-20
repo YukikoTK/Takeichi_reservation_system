@@ -39,19 +39,17 @@
                             <td class="edit_table-text">
                                 <input class="input_decoration icon_del input_time" type="time" name="time" id="time" value="{{ old('time', substr($bookEdit->time, 0, 5)) }}">
                                 @error('time')
-                                    <p class="error_msg">
-                                        {{ $message }}
-                                    </p>
+                                    <p class="error_msg">{{ $message }}</p>
                                 @enderror
                             </td>
                         </tr>
-                            <tr class="edit_table-row">
+                        <tr class="edit_table-row">
                             <th class="edit_table-header">Number</th>
                             <td class="edit_table-text">
                                 <select class="input_decoration input_number" name="number" id="number" value="">
                                     <option value="" selected></option>
                                     @for ($i = 1; $i <= 10; $i++)
-                                    <option value="{{ $i }}" @if (old('number', $bookEdit->number) == $i) selected @endif>{{ $i }}人</option>
+                                        <option value="{{ $i }}" @if (old('number', $bookEdit->number) == $i) selected @endif>{{ $i }}人</option>
                                     @endfor
                                 </select>
                                 @error('number')

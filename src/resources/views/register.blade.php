@@ -15,14 +15,14 @@
             <div class="card_inner">
                 <h2 class="ttl">Registration</h2>
                 @if ($errors->any())
-                <div class="error error_ttl">
-                    {{ __('Whoops! Something went wrong.') }}
-                </div>
-                <ul class="error error_msg">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+                    <div class="error error_ttl">
+                        {{ __('Whoops! Something went wrong.') }}
+                    </div>
+                    <ul class="error error_msg">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 @endif
                 <div class="card_items-center">
                     <div class="card_items">

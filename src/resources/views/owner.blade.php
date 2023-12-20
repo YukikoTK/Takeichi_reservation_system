@@ -23,7 +23,7 @@
                     </form>
                 </li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </div>
 </div>
 @endsection

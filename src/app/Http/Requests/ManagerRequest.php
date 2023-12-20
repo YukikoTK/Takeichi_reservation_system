@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 class ManagerRequest extends FormRequest
 {
@@ -27,7 +28,7 @@ class ManagerRequest extends FormRequest
         return [
             'name' => 'required|string|max:191',
             'email' => ['required', 'string', 'email', Rule::unique('users', 'email'), 'max:191'],
-            'password' => ['required', Rules\Password::defaults()],
+            'password' => ['required', Password::defaults()],
             'role' => 'required|string'
         ];
     }
@@ -44,8 +45,6 @@ class ManagerRequest extends FormRequest
             'email.unique' => 'このメールアドレスは既に登録されています',
             'email.max' => '191文字以内で登録してください',
             'password.required' => '入力必須です',
-            // 'password.string' => '文字列で入力してください',
-            // 'password.min' => '8文字以上で入力してください',
             'role.required' => '入力必須です',
             'role.string' => '文字列で入力してください',
         ];

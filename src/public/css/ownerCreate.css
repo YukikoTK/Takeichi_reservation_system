@@ -46,6 +46,12 @@
     text-align: left;
 }
 
+@media screen and (max-width: 480px) {
+    .form_error {
+        font-size: 10px;
+    }
+}
+
 .form_input-text input,
 .form_input-textarea textarea {
     padding: 10px;

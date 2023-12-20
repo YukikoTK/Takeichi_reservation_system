@@ -22,33 +22,37 @@ use App\Http\Controllers\ManagerShopController;
 
 require __DIR__.'/auth.php';
 
+// ログイン不要
 Route::get('/', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/detail/{shop_id}', [ShopController::class, 'show'])->name('detail.show');
 
 
 Route::middleware('verified')->group(function () {
+    // 予約機能
+    Route::post('/book/store', [BookController::class, 'store'])->name('book.store');
+
+    Route::get('/book/edit', [BookController::class, 'edit'])->name('book.edit');
+
+    Route::post('/book/update', [BookController::class, 'update'])->name('book.update');
 
     // mypage機能
     Route::get('/mypage', [BookController::class, 'show'])->name('mypage.show');
+
     Route::delete('/mypage/destroy', [BookController::class, 'destroy'])->name('mypage.destroy');
 
-    // 予約機能
-    Route::post('/book/store', [BookController::class, 'store'])->name('book.store');
-    Route::get('/book/edit', [BookController::class, 'edit'])->name('book.edit');
-    Route::post('/book/update', [BookController::class, 'update'])->name('book.update');
-
-
     // いいね機能
-    Route::post('/like/{shop_id}', [LikeController::class, 'store'])->name('like.store');
-    Route::delete('/like/{shop_id}', [LikeController::class, 'destroy'])->name('like.destroy');
+    Route::post('/like/store', [LikeController::class, 'store'])->name('like.store');
+
+    Route::delete('/like/destroy', [LikeController::class, 'destroy'])->name('like.destroy');
 
     // 評価機能
     Route::get('/review', [ReviewController::class, 'show'])->name('review.show');
+
     Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store');
 
 });
 
-    // 管理者、店舗代表者の画面
+// 管理者、店舗代表者の画面
 Route::middleware(['auth', 'admin_auth:owner'])->group(function () {
 
     Route::get('/owner', [OwnerPrivateController::class, 'index'])->name('owner.index');

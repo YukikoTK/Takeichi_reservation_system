@@ -18,13 +18,16 @@
             <th>予約人数</th>
         </tr>
         @foreach($bookRecords as $bookRecord)
-        <tr>
-            <td>{{ $bookRecord->user->name }}</td>
-            <td>{{ $bookRecord->date }}</td>
-            <td>{{ $bookRecord->time }}</td>
-            <td>{{ $bookRecord->number }}</td>
-        </tr>
+            <tr>
+                <td>{{ $bookRecord->user->name }}</td>
+                <td>{{ $bookRecord->date }}</td>
+                <td>{{ $bookRecord->time }}</td>
+                <td>{{ $bookRecord->number }}</td>
+            </tr>
         @endforeach
     </table>
+    <div class="button">
+        <button class="return_button" onclick="location.href='/manager/shop'">戻る</button>
+    </div>
 </div>
 @endsection

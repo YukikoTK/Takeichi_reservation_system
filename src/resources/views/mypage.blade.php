@@ -14,11 +14,11 @@
         <div class="card_flex">
             <div class="book_form">
                 @php
-                $sortedBookRecords = $bookRecords->sortBy('date');
-                $reservationNumber = 1;
+                    $sortedBookRecords = $bookRecords->sortBy('date');
+                    $reservationNumber = 1;
                 @endphp
-                    <h3 class="book_card-ttl">予約状況</h3>
-                    @foreach($sortedBookRecords as $sortedBookRecord)
+                <h3 class="book_card-ttl">予約状況</h3>
+                @foreach($sortedBookRecords as $sortedBookRecord)
                     <div class="book_card">
                         <div class="book_card-inner">
                             <p class="book_number">予約{{ $reservationNumber }}</p>
@@ -33,7 +33,6 @@
                                 </div>
                             </form>
                         </div>
-
                         <form action="{{ route('book.edit') }}" method="GET" class="edit_form">
                             @csrf
                             <div class="confirm_table">
@@ -56,12 +55,12 @@
                                     </tr>
                                 </table>
                                 @if(strtotime($sortedBookRecord->date) > strtotime(now()))
-                                <div class="btn edit_btn">
-                                    <input type="hidden" name="id" value="{{ $sortedBookRecord->id }}">
-                                    <button class="btn-decoration" type="submit">
-                                        予約変更
-                                    </button>
-                                </div>
+                                    <div class="btn edit_btn">
+                                        <input type="hidden" name="id" value="{{ $sortedBookRecord->id }}">
+                                        <button class="btn-decoration" type="submit">
+                                            予約変更
+                                        </button>
+                                    </div>
                                 @endif
                             </div>
                         </form>
@@ -76,17 +75,15 @@
                             </form>
                         @endif
                     </div>
-                @php
-                $reservationNumber++;
-                @endphp
+                    @php
+                        $reservationNumber++;
+                    @endphp
                 @endforeach
             </div>
-
-
             <div class="like_inner">
                 <h3 class="like_card-ttl">お気に入り店舗</h3>
-                    <div class="flex_item">
-                        @foreach($likedRecords as $likedRecord)
+                <div class="flex_item">
+                    @foreach($likedRecords as $likedRecord)
                         <div class="shop_card">
                             <div class="card_img">
                                 <img src="{{ $likedRecord->shop->img }}" alt="店舗の画像">
@@ -99,18 +96,19 @@
                                 </div>
                                 <div class="btn_flex">
                                     <a href="{{ route('detail.show', ['shop_id' => $likedRecord->shop->id]) }}" class="shop_btn">詳しくみる</a>
-                                    <form action="{{ route('like.destroy', ['shop_id' => $likedRecord->shop->id]) }}" method="post" class="like_form">
-                                    @method('DELETE')
-                                    @csrf
+                                    <form action="{{ route('like.destroy') }}" method="post" class="like_form">
+                                        @method('DELETE')
+                                        @csrf
+                                        <input type="hidden" name="shop_id" value="{{ $likedRecord->shop->id }}">
                                         <button type="submit" class="heart_btn">
-                                            <img src="{{asset('img/heart-red.svg')}}" alt="いいねボタン">
+                                            <img src="{{ asset('img/heart-red.svg') }}" alt="いいねボタン">
                                         </button>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
-                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
