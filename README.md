@@ -46,7 +46,7 @@
 - 店舗代表者：予約リマインドメール送信機能（タスクスケジューラー）
 - ストレージ機能(店舗画像保存)
 - QRコード発行・照合機能
-- Stripe決済
+- Stripe決済機能
 
 
 ## 使用技術(実行環境)
@@ -112,7 +112,13 @@
 
        php artisan migrate:fresh --seed
 
-8. mailhog導入(下記をdocker-compose.ymlに追記)
+8. シンボリックリンクの作成
+
+     ストレージに保存された店舗画像を表示させるために、以下のコマンドを実行
+
+       php artisan storage:link
+
+9. mailhog導入(下記をdocker-compose.ymlに追記)
 
        volumes:
    
@@ -140,13 +146,13 @@
    
              - maildir:/tmp
 
-9. 下記コマンドを実行し、イメージの再ビルドとコンテナ起動
+10. 下記コマンドを実行し、イメージの再ビルドとコンテナ起動
 
         $ docker-compose build
 
         $ docker-compose up -d
 
-10. 下記の通り.envを修正
+11. 下記の通り.envを修正
 
          MAIL_MAILER=smtp
     
@@ -164,11 +170,11 @@
     
          MAIL_FROM_NAME="${APP_NAME}"
 
-11. 以下にログインし、認証メールの受信を確認
+12. 以下にログインし、認証メールの受信を確認
 
        http://localhost:8025/
 
-12. 以下の認証済みユーザーにてログイン
+13. 以下の認証済みユーザーにてログイン
 
 - 管理者
   
@@ -194,13 +200,13 @@
   
      password：password
 
-13. 予約リマインドメール送信
+14. 予約リマインドメール送信
 
-  　　src/app/Console/Kernel.phpの送信時間を必要に応じて設定し、以下のコマンドを実行(現在はAM8:00に設定中)
+  　　src/app/Console/Kernel.phpの送信時間を必要に応じて変更し、以下のコマンドを実行(現在はAM8:00に設定中)
 
-  php artisan reminder:send
+         php artisan reminder:send
 
-14. Stripe決済機能の環境を以下の通り構築
+15. Stripe決済機能の環境を以下の通り構築
 
      1. https://stripe.com/jp にてアカウントを取得
 
@@ -209,6 +215,10 @@
      3. composer require laravel/cashier にてCashierのパッケージをインストール
 
      4. .envファイルの一番下にAPIキーを貼り付け
+
+         STRIPE_KEY=ここに取得した公開可能キーを記述
+
+         STRIPE_SECRET=ここに取得したシークレットキーを記述
 
      5. 以下のテスト情報でstripe決済を実行
 

@@ -33,7 +33,7 @@ class BooksTableSeeder extends Seeder
         Book::create([
             'user_id' => '5',
             'shop_id' => '3',
-            'date' => '2024-1-5',
+            'date' => '2024-1-24',
             'time' => '18:00:00',
             'number' => '2'
         ]);
