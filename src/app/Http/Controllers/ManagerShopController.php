@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use App\Http\Requests\ShopRequest;
 use App\Models\Shop;
 use App\Models\Book;
 use App\Models\Area;
 use App\Models\Genre;
+use Illuminate\Support\Facades\Storage;
 
 class ManagerShopController extends Controller
 {
@@ -35,13 +37,6 @@ class ManagerShopController extends Controller
 
     }
 
-    public function confirm(ShopRequest $request) {
-        $data = $request->all();
-
-        return view('managerConfirm', compact('data'));
-
-    }
-
     public function store(ShopRequest $request)
     {
         $data = $request->all();
@@ -50,13 +45,16 @@ class ManagerShopController extends Controller
         $areaId = Area::where('area', $area)->value('id');
         $genreId = Genre::where('genre', $genre)->value('id');
 
+        $dir = 'image';
+        $file_name = $request->file('img')->getClientOriginalName();
+        $imgPath = $request->file('img')->storeAs('public/' . $dir, $file_name);
+
         Shop::create([
             'area_id' => $areaId,
             'genre_id' => $genreId,
             'shop' => $data['shop'],
             'detail' => $data['detail'],
-            'img' => $data['img'],
-
+            'img' => $imgPath,
         ]);
 
         return view('managerThanks');
@@ -80,13 +78,17 @@ class ManagerShopController extends Controller
         $areaId = Area::where('area', $area)->value('id');
         $genreId = Genre::where('genre', $genre)->value('id');
 
+        $dir = 'image';
+        $file_name = $request->file('img')->getClientOriginalName();
+        $imgPath = $request->file('img')->storeAs('public/' . $dir, $file_name);
+
         Shop::find($request->id)
         ->update([
             'area_id' => $areaId,
             'genre_id' => $genreId,
             'shop' => $data['shop'],
             'detail' => $data['detail'],
-            'img' => $data['img'],
+            'img' => $imgPath,
         ]);
 
         return view('managerThanks');

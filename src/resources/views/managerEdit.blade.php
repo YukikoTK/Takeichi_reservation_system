@@ -10,7 +10,7 @@
   <div class="confirm_heading">
     <h1>登録内容変更</h1>
   </div>
-  <form class="form" action="{{ route('manager.update') }}" method="post">
+  <form class="form" action="{{ route('manager.update') }}" method="post" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="id" value="{{ $shop['id'] }}">
     <div class="confirm-table">
@@ -68,8 +68,7 @@
         <tr class="confirm-table_row">
           <th class="confirm-table_header">イメージ</th>
           <td class="confirm-table_text">
-            <textarea type="text" name="img" value="" rows="3">{{ $shop->img }}
-            </textarea>
+            <input type="file" name="img" accept="image/jpeg">
             <div class="form_error">
               @error('img')
                 {{ $message }}

@@ -28,7 +28,8 @@ class ShopRequest extends FormRequest
             'genre' => 'required|string',
             'shop' => 'required|string|max:100',
             'detail' => 'required|string|max:191',
-            'img' => 'required|string|max:191',
+            // 'img' => 'required|string|max:191',
+            'img' => 'required|file|mimes:jpeg,jpg',
         ];
     }
 

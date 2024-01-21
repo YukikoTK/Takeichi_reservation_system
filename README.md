@@ -42,14 +42,21 @@
 - 管理者：店舗代表者登録機能
 - 店舗代表者：予約確認機能
 - 店舗代表者：店舗情報登録・変更機能
+- 店舗代表者：メール送信機能
+- 店舗代表者：予約リマインドメール送信機能（タスクスケジューラー）
+- ストレージ機能(店舗画像保存)
+- QRコード発行・照合機能
+- Stripe決済
+
 
 ## 使用技術(実行環境)
 
 - laravel8
 - laravel breeze
-- php
+- php8.2.8
 - JavaScript
 - MailHog
+- Stripe
 
 ## テーブル設計
 
@@ -187,6 +194,33 @@
   
      password：password
 
+13. 予約リマインドメール送信
+
+  　　src/app/Console/Kernel.phpの送信時間を必要に応じて設定し、以下のコマンドを実行(現在はAM8:00に設定中)
+
+  php artisan reminder:send
+
+14. Stripe決済機能の環境を以下の通り構築
+
+     1. https://stripe.com/jp にてアカウントを取得
+
+     2. APIキーを取得
+
+     3. composer require laravel/cashier にてCashierのパッケージをインストール
+
+     4. .envファイルの一番下にAPIキーを貼り付け
+
+     5. 以下のテスト情報でstripe決済を実行
+
+        email : goro@test.com
+
+        カード番号：4242 4242  4242 4242
+
+        有効期限 : 12/24
+
+        CVC : 123
+
+
 ## その他
 
 ログインの有無により、アクセスできるページが異なる。
@@ -195,6 +229,6 @@
 
   - 店舗一覧ページ（/）
 
-  - 店舗詳細ページ（/deetail）：予約フォーム非表示
+  - 店舗詳細ページ（/detail）：予約フォーム非表示
 
 

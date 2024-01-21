@@ -10,7 +10,7 @@
   <div class="create-form_heading">
     <h1>店舗新規登録</h1>
   </div>
-  <form class="form" action="{{ route('manager.confirm') }}" method="POST">
+  <form class="form" action="{{ route('manager.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form_group">
       <div class="form_group-title">
@@ -83,8 +83,8 @@
         <span class="form_label-item">イメージ</span>
       </div>
       <div class="form_group-content">
-        <div class="form_input-textarea">
-          <textarea type="text" name="img" placeholder="画像URL" value="" rows="3">{{ old('img') }}</textarea>
+        <div class="form_input-file">
+          <input class="form_input-file" type="file" id="imgInput" name="img" accept="image/jpeg">
         </div>
         <div class="form_error">
           @error('img')

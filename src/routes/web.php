@@ -8,6 +8,9 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\OwnerPrivateController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ManagerShopController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +53,14 @@ Route::middleware('verified')->group(function () {
 
     Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store');
 
+    // QRコード表示
+    Route::get('/qrcode', [QrCodeController::class, 'index'])->name('qrcode.index');
+
+    Route::get('/qrcode/book', [QrCodeController::class, 'show'])->name('qrcode.show');
+
+    // stripe決済
+    Route::post('/pay', [PaymentController::class, 'pay'])->name('stripe.pay');
+
 });
 
 // 管理者、店舗代表者の画面
@@ -75,11 +86,13 @@ Route::middleware(['auth', 'admin_auth:manager'])->group(function () {
 
     Route::get('/manager/create', [ManagerShopController::class, 'create'])->name('manager.create');
 
-    Route::post('/manager/confirm', [ManagerShopController::class, 'confirm'])->name('manager.confirm');
-
     Route::post('/manager/store', [ManagerShopController::class, 'store'])->name('manager.store');
 
     Route::get('/manager/edit', [ManagerShopController::class, 'edit'])->name('manager.edit');
 
     Route::post('/manager/update', [ManagerShopController::class, 'update'])->name('manager.update');
+
+    Route::get('/manager/mail', [MailController::class, 'showForm'])->name('mail.show');
+
+    Route::post('/manager/mail/send', [MailController::class, 'sendMail'])->name('mail.send');
 });

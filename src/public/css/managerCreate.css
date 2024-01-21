@@ -116,3 +116,13 @@
         width: 90%;
     }
 }
+
+.alert-success {
+    margin-top: 20px;
+    text-align: center;
+    color: #0051FF;
+}
+
+.form_input-file {
+    width: 500px;
+}

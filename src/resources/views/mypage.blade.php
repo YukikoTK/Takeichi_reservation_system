@@ -64,8 +64,19 @@
                                 @endif
                             </div>
                         </form>
+                        @if(strtotime($sortedBookRecord->date) > strtotime(now()))
+                            <form action="{{ route('qrcode.index') }}" method="GET" class="qr_form">
+                                @csrf
+                                <div class="btn qr_btn">
+                                    <input type="hidden" name="id" value="{{ $sortedBookRecord->id }}">
+                                    <button class="btn-decoration" type="submit">
+                                        QRコード表示
+                                    </button>
+                                </div>
+                            </form>
+                        @endif
                         @if(strtotime($sortedBookRecord->date) < strtotime(now()))
-                            <form action="{{ route('review.show') }}" method="GET" class="review_form">
+                            <form action="{{ route('review.show') }}" method="get" class="review_form">
                                 <div class="btn review_btn">
                                     <input type="hidden" name="id" value="{{ $sortedBookRecord->id }}">
                                     <button class="btn-decoration" type="submit">
@@ -74,6 +85,19 @@
                                 </div>
                             </form>
                         @endif
+                        <form action="{{ asset('pay') }}" method="POST">
+                            @csrf
+                        <script
+                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="{{ env('STRIPE_KEY') }}"
+                            data-amount="100"
+                            data-name="Stripe決済デモ"
+                            data-label="決済をする"
+                            data-description="これはデモ決済です"
+                            data-locale="auto"
+                            data-currency="JPY">
+                        </script>
+                        </form>
                     </div>
                     @php
                         $reservationNumber++;
@@ -86,7 +110,7 @@
                     @foreach($likedRecords as $likedRecord)
                         <div class="shop_card">
                             <div class="card_img">
-                                <img src="{{ $likedRecord->shop->img }}" alt="店舗の画像">
+                                <img src="{{ asset('storage/image/' . basename($likedRecord->shop->img)) }}" alt="店舗の画像">
                             </div>
                             <div class="card_content">
                                 <h2 class="shop_name">{{ $likedRecord->shop->shop}}</h2>

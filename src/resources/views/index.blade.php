@@ -94,7 +94,7 @@
                     <div class="shop_card">
                         <div id="search-results"></div>
                         <div class="card_img">
-                            <img src="{{$shop->img}}" alt="店舗の画像">
+                            <img src="{{ asset('storage/image/' . basename($shop->img)) }}" alt="店舗の画像">
                         </div>
                         <div class="card_content search-target">
                             <h2 class="shop_name">{{$shop->shop}}</h2>

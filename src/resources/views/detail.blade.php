@@ -65,7 +65,7 @@
                 <h2 class="shop_name">{{$shop->shop}}</h2>
             </div>
             <div class="card_img">
-                <img src="{{$shop->img}}" alt="店舗の画像">
+                <img src="{{ asset('storage/image/' . basename($shop->img)) }}" alt="店舗の画像">
             </div>
             <div class="flex_tag">
                 <p class="tag_area">#{{$shop->area->area}}</p>
