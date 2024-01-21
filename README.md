@@ -112,13 +112,29 @@
 
        php artisan migrate:fresh --seed
 
-8. シンボリックリンクの作成
+8. 店舗画像をstorageに移動 （移動の理由についてはその他を参照）
+
+      プロジェクト直下のImageディレクトリ内の以下のファイルを、
+
+      src/storage/app/public/imageへ移動させる。（ファイルのみ移動すること）
+
+        italian.jpg
+
+        izakaya.jpg
+
+        ramen.jpg
+
+        sushi.jpg
+
+        yakiniku.jpg
+
+9. シンボリックリンクの作成
 
      ストレージに保存された店舗画像を表示させるために、以下のコマンドを実行
 
        php artisan storage:link
 
-9. mailhog導入(下記をdocker-compose.ymlに追記)
+10. mailhog導入(下記をdocker-compose.ymlに追記)
 
        volumes:
    
@@ -146,13 +162,13 @@
    
              - maildir:/tmp
 
-10. 下記コマンドを実行し、イメージの再ビルドとコンテナ起動
+11. 下記コマンドを実行し、イメージの再ビルドとコンテナ起動
 
         $ docker-compose build
 
         $ docker-compose up -d
 
-11. 下記の通り.envを修正
+12. 下記の通り.envを修正
 
          MAIL_MAILER=smtp
     
@@ -170,11 +186,11 @@
     
          MAIL_FROM_NAME="${APP_NAME}"
 
-12. 以下にログインし、認証メールの受信を確認
+13. 以下にログインし、認証メールの受信を確認
 
        http://localhost:8025/
 
-13. 以下の認証済みユーザーにてログイン
+14. 以下の認証済みユーザーにてログイン
 
 - 管理者
   
@@ -200,7 +216,7 @@
   
      password：password
 
-14. 予約リマインドメール送信
+15. 予約リマインドメール送信
 
     src/app/Console/Kernel.phpの送信時間を必要に応じて変更し、
 
@@ -208,7 +224,7 @@
 
          php artisan reminder:send
 
-15. Stripe決済機能の環境を以下の通り構築
+16. Stripe決済機能の環境を以下の通り構築
 
      1. https://stripe.com/jp にてアカウントを取得
 
@@ -235,12 +251,22 @@
 
 ## その他
 
-ログインの有無により、アクセスできるページが異なる。
+- ログインの有無により、アクセスできるページが異なる。
 
-ログイン無の場合は、以下のみアクセスが可能
+   ログイン無の場合は、以下のみアクセスが可能
 
-  - 店舗一覧ページ（/）
+     - 店舗一覧ページ（/）
 
-  - 店舗詳細ページ（/detail）：予約フォーム非表示
+     - 店舗詳細ページ（/detail）：予約フォーム非表示
 
+- 店舗画像をstorageに移動する作業について
 
+    storageディレクトリに保存されているファイルは、.gitignoreファイルにより
+
+    無視される。対応として、src/storage/app/public/image直下に.gitignoreファイルを
+    
+    作成し、srcディレクトリ直下の.gitignoreファイルもstorageのimageを
+    
+    githubにコミットできるよう修正をしたが、反映しなかった為、
+
+    今回の手順により、店舗画像をstorageから読み込みviewに表示できるようにした。
