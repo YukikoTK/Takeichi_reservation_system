@@ -60,7 +60,7 @@
 
 ## テーブル設計
 
-![テーブル設計](テーブル設計.png)
+![テーブル設計](テーブル設計.png)
 
 ## ER図
 
@@ -114,9 +114,13 @@
 
 8. 店舗画像をstorageに移動 （移動の理由についてはその他を参照）
 
+      src/storage/app/public/の中にimageディレクトリを作成
+
+      （作成後のパス：src/storage/app/public/image）
+      
       プロジェクト直下のImageディレクトリ内の以下のファイルを、
 
-      src/storage/app/public/imageへ移動させる。（ファイルのみ移動すること）
+      src/storage/app/public/imageへコピーする。（ファイルのみコピーすること）
 
         italian.jpg
 
@@ -136,31 +140,31 @@
 
 10. mailhog導入(下記をdocker-compose.ymlに追記)
 
-       volumes:
+        volumes:
    
-         db-volume:
+          db-volume:
    
-         maildir: {}
+          maildir: {}
 
-       mail:
+        mail:
    
-           image: mailhog/mailhog
+            image: mailhog/mailhog
    
-           container_name: mailhog
+            container_name: mailhog
    
-           ports:
+            ports:
     
-             - "8025:8025"
+              - "8025:8025"
    
-           environment:
+            environment:
    
-             MH_STORAGE: maildir
+              MH_STORAGE: maildir
    
-             MH_MAILDIR_PATH: /tmp
+              MH_MAILDIR_PATH: /tmp
    
-           volumes:
+            volumes:
    
-             - maildir:/tmp
+              - maildir:/tmp
 
 11. 下記コマンドを実行し、イメージの再ビルドとコンテナ起動
 
