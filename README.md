@@ -202,7 +202,9 @@
 
 14. 予約リマインドメール送信
 
-  　　src/app/Console/Kernel.phpの送信時間を必要に応じて変更し、以下のコマンドを実行(現在はAM8:00に設定中)
+    src/app/Console/Kernel.phpの送信時間を必要に応じて変更し、
+
+    以下のコマンドを実行(現在はAM8:00に設定中)
 
          php artisan reminder:send
 
@@ -214,7 +216,7 @@
 
      3. composer require laravel/cashier にてCashierのパッケージをインストール
 
-     4. .envファイルの一番下にAPIキーを貼り付け
+     4. .envファイルの一番下に取得したAPIキーを貼り付け
 
          STRIPE_KEY=ここに取得した公開可能キーを記述
 
