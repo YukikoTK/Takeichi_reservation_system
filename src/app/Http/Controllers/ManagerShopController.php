@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use App\Http\Requests\ShopRequest;
 use App\Models\Shop;
 use App\Models\Book;
 use App\Models\Area;
 use App\Models\Genre;
-use Illuminate\Support\Facades\Storage;
 
 class ManagerShopController extends Controller
 {

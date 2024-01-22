@@ -37,7 +37,7 @@
             <select type="text" name="genre" id="genre" class="form_input-select">
               <option value=""></option>
               @foreach($genres as $key => $score)
-                <option <option value="{{ $score }}" {{ $shop->genre->genre == $score ? 'selected' : '' }}>{{ $score }}</option>
+                <option value="{{ $score }}" {{ $shop->genre->genre == $score ? 'selected' : '' }}>{{ $score }}</value=>
               @endforeach
             </select>
             <div class="form_error">
