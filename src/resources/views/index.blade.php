@@ -60,7 +60,17 @@
                     <h1>Rese</h1>
                 </div>
             </div>
-
+            <!-- ソート機能 -->
+            <div class="sort">
+                <div class="sort_items">
+                    <select id="sort_select" name="sort" class="sort_items-select">
+                        <option value="">並び替え：評価高／低</option>
+                        <option id="sort_random" value="random">ランダム</option>
+                        <option value="high_to_low">評価が高い順</option>
+                        <option value="low_to_high">評価が低い順</option>
+                    </select>
+                </div>
+            </div>
             <!-- 検索バー -->
             <div class="search_items">
                 <div class="search_items-area">
@@ -86,6 +96,7 @@
             </div>
             <!-- JavaScript読み込み -->
             <script src="{{ asset('/js/ham.js') }}"></script>
+            <script src="{{ asset('/js/sort.js') }}"></script>
             <script src="{{ asset('/js/search.js') }}"></script>
         </header>
         <main>

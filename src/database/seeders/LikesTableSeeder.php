@@ -34,5 +34,9 @@ class LikesTableSeeder extends Seeder
             'shop_id' => '8',
         ]);
 
+        Like::create([
+            'user_id' => '5',
+            'shop_id' => '10',
+        ]);
     }
 }

@@ -75,16 +75,6 @@
                                 </div>
                             </form>
                         @endif
-                        @if(strtotime($sortedBookRecord->date) < strtotime(now()))
-                            <form action="{{ route('review.show') }}" method="get" class="review_form">
-                                <div class="btn review_btn">
-                                    <input type="hidden" name="id" value="{{ $sortedBookRecord->id }}">
-                                    <button class="btn-decoration" type="submit">
-                                        レビュー投稿
-                                    </button>
-                                </div>
-                            </form>
-                        @endif
                         <form action="{{ asset('pay') }}" method="POST">
                             @csrf
                         <script

@@ -17,5 +17,7 @@
 
     "Log Out":"ログアウト",
 
-    "Regards":"よろしくお願い致します。"
+    "Regards":"よろしくお願い致します。",
+
+    "There was an error on row :row. :message": ":row 行目 :message"
 }

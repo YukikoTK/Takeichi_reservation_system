@@ -25,7 +25,8 @@ class ReviewRequest extends FormRequest
     {
         return [
             'rate' => 'required|integer',
-            'comment' => 'required|string|max:191',
+            'comment' => 'required|string|max:400',
+            'img' => 'mimes:jpg,jpeg,png',
         ];
     }
 
@@ -35,7 +36,8 @@ class ReviewRequest extends FormRequest
             'rate.required' => '入力必須です',
             'comment.required' => '入力必須です',
             'comment.string' => '文字列を入力してください',
-            'comment.max' => '191文字以内で入力してください'
+            'comment.max' => '400文字以内で入力してください',
+            'img.mimes' => 'ファイル形式はjpg、jpeg、pngのみです'
         ];
     }
 }

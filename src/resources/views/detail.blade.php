@@ -53,6 +53,7 @@
                         @endguest
                     </ul>
                 </nav>
+
                 <!-- タイトル -->
                 <div class="header_items-ttl">
                     <h1>Rese</h1>
@@ -72,8 +73,72 @@
                 <p class="tag_genre">#{{$shop->genre->genre}}</p>
             </div>
             <p class="detail_shop">{{$shop->detail}}</p>
+            <form action="{{ route('review.index') }}" class="review_all-form" method="GET">
+            @csrf
+                <div class="review_btn-all">
+                    <input type="hidden" name="id" value="{{ $shop->id }}">
+                    <button class="btn_all" type="submit">全ての口コミ情報</button>
+                </div>
+            </form>
+            @if($myReview)
+                <div class="review_items">
+                    <div class="review_flex">
+                        <ul class="review_list">
+                            <li class="item">
+                                <form action="{{ route('review.edit') }}" class="review_edit-form" method="GET">
+                                @csrf
+                                    <input type="hidden" name="id" value="{{ $myReview->id }}">
+                                    <button class="review_edit" type="submit">口コミを編集</button>
+                                </form>
+                            </li>
+                            <li class="item">
+                                <form action="{{ route('review.destroy') }}"
+                                class="review_delete-form" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                    <input type="hidden" name="id" value="{{ $myReview->id }}">
+                                    <button class="review_delete" type="submit">口コミを削除</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="review_contents">
+                        <div class="star_rating">
+                            <div class="star_rating-front">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $myReview->star)
+                                        <span class="star">★</span>
+                                    @else
+                                        <span class="star">☆</span>
+                                    @endif
+                                @endfor
+                            </div>
+                            <div class="star_rating_back">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <span class="star">☆</span>
+                                @endfor
+                            </div>
+                        </div>
+                        <p class="review_comment">{{ $myReview->comment }}</p>
+                        <div class="review_img">
+                            @if ($myReview && $myReview->img_review)
+                                <img class="review_img-img" src="{{ asset('storage/review_image/' . basename($myReview->img_review)) }}" alt="投稿画像">
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @else
+                <form action="{{ route('review.show') }}" method="get" class="review_form">
+                    @csrf
+                        <div class="btn review_btn">
+                            <input type="hidden" name="id" value="{{ $shop->id }}">
+                            <button class="btn-decoration" type="submit">
+                                口コミを投稿する
+                            </button>
+                        </div>
+                </form>
+            @endif
         </div>
-
         <!-- ゲスト（未ログインユーザー）の場合の予約フォーム画面 -->
         @guest
         <!-- ログインユーザーの場合の予約フォーム画面 -->

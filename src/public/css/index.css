@@ -17,7 +17,7 @@ a {
     width: 100%;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 780px) {
     .header_inner {
         flex-direction: column;
     }
@@ -26,6 +26,12 @@ a {
 .header_items {
     display: flex;
     width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .header_items {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -141,7 +147,7 @@ h1 {
 
 @media screen and (max-width: 768px) {
     .header_items-ttl {
-        font-size: 15px;
+        font-size: 10px;
         margin: 0 0 0 80px;
     }
 }
@@ -162,17 +168,18 @@ h1 {
 
 @media screen and (max-width: 768px) {
     .search_items {
-        width: 70%;
+        width: 100%;
+        margin-top: 30px;
     }
 }
 
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
     .search_items {
         width: 100%;
         margin-top: 10px;
         margin-bottom: 10px;
     }
-}
+} */
 
 .search_items-area {
     width: 20%;
@@ -196,20 +203,19 @@ h1 {
     width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+    .search_decoration-select {
+        font-size: 10px;
+    }
+}
+
 .search_decoration-area {
     background-position: left 65px center;
 }
 
 @media screen and (max-width: 768px) {
     .search_decoration-area {
-        background-position: left 60px center;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .search_decoration-area {
         background-position: left 50px center;
-        font-size: 10px;
     }
 }
 
@@ -219,14 +225,7 @@ h1 {
 
 @media screen and (max-width: 768px) {
     .search_decoration-genre {
-        background-position: left 75px center;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .search_decoration-genre {
-        background-position: left 60px center;
-        font-size: 10px;
+        background-position: left 50px center;
     }
 }
 
@@ -250,25 +249,12 @@ h1 {
     height: 25px;
 }
 
-@media screen and (max-width: 480px) {
-    .search_items-text img {
-        width: 15px;
-        height: 15px;
-    }
-}
-
 .search_decoration-input {
     border: none;
     outline: none;
     background-color: #F5F5F5;
     padding: 0;
     width: 80%;
-}
-
-@media screen and (max-width: 480px) {
-    .search_decoration-input {
-        font-size: 10px;
-    }
 }
 
 /* selectタグの矢印削除 */
@@ -375,7 +361,45 @@ select::-ms-expand {
     background-color: #F5F5F5;
 }
 
+.sort_items {
+    border: 0.5px solid rgb(174, 174, 174);
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px #C0C0C0;
+    padding: 20px 5px;
+    height: 60px;
+    align-items: center;
+    margin: 0 0 0 auto;
+    font-size: 13px;
+}
 
+@media screen and (max-width: 768px) {
+    .sort_items {
+        font-size: 8px;
+        margin-top: 30px;
+    }
+}
 
+.sort {
+    width: 23%;
+    margin-right: 30px;
+}
 
+@media screen and (max-width: 768px) {
+    .sort {
+        width: 100%;
+        margin-right: 0px;
+    }
+}
 
+.sort_items-select {
+    border: none;
+    outline: none;
+    background-color: #F5F5F5;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .sort_items-select {
+        font-size: 10px;
+    }
+}

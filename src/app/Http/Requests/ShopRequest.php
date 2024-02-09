@@ -26,10 +26,9 @@ class ShopRequest extends FormRequest
         return [
             'area' => 'required|string',
             'genre' => 'required|string',
-            'shop' => 'required|string|max:100',
-            'detail' => 'required|string|max:191',
-            // 'img' => 'required|string|max:191',
-            'img' => 'required|file|mimes:jpeg,jpg',
+            'shop' => 'required|string|max:50',
+            'detail' => 'required|string|max:400',
+            'img' => 'required|file|mimes:jpeg,jpg,png',
         ];
     }
 
@@ -42,13 +41,12 @@ class ShopRequest extends FormRequest
             'genre.string' => '文字列を入力してください',
             'shop.required' => '入力必須です',
             'shop.string' => '文字列を入力してください',
-            'shop.max' => '100文字以内で入力してください',
+            'shop.max' => '50文字以内で入力してください',
             'detail.required' => '入力必須です',
             'detail.string' => '文字列を入力してください',
-            'detail.max' => '191文字以内で入力してください',
+            'detail.max' => '400文字以内で入力してください',
             'img.required' => '入力必須です',
-            'img.string' => '文字列を入力してください',
-            'img.max' => '191文字以内で入力してください'
+            'img.mimes' => 'ファイル形式はjpeg,jpgまたはpngを選択してください',
         ];
     }
 }

@@ -28,6 +28,7 @@
                 <td>{{ $shop->shop }}</td>
                 <td>
                     <form action="{{ route('manager.edit') }}" action="GET">
+                        @csrf
                         <input type="hidden" name="id" value="{{ $shop->id }}">
                         <button type="submit">変更</button>
                     </form>

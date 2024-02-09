@@ -11,6 +11,8 @@ use App\Http\Controllers\ManagerShopController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\OwnerReviewController;
+use App\Http\Controllers\CsvImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +55,14 @@ Route::middleware('verified')->group(function () {
 
     Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store');
 
+    Route::get('/review/edit', [ReviewController::class, 'edit'])->name('review.edit');
+
+    Route::post('/review/update', [ReviewController::class, 'update'])->name('review.update');
+
+    Route::delete('/review/destroy', [ReviewController::class, 'destroy'])->name('review.destroy');
+
+    Route::get('/review/all', [ReviewController::class, 'index'])->name('review.index');
+
     // QRコード表示
     Route::get('/qrcode', [QrCodeController::class, 'index'])->name('qrcode.index');
 
@@ -73,6 +83,16 @@ Route::middleware(['auth', 'admin_auth:owner'])->group(function () {
     Route::post('/owner/confirm', [OwnerPrivateController::class, 'confirm'])->name('owner.confirm');
 
     Route::post('/owner/store', [OwnerPrivateController::class, 'store'])->name('owner.store');
+
+    Route::get('/owner/review', [OwnerReviewController::class, 'index'])->name('owner.review');
+
+    Route::get('/owner/review/{user_id}', [OwnerReviewController::class, 'show'])->name('owner.reviewShow');
+
+    Route::delete('/owner/review/destroy', [OwnerReviewController::class, 'destroy'])->name('owner.reviewDestroy');
+
+    Route::get('csv', [CsvImportController::class, 'index'])->name('csv');
+
+    Route::post('csv/upload', [CsvImportController::class, 'importCsv'])->name('csv.upload');
 
 });
 

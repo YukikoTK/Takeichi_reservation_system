@@ -46,5 +46,12 @@ class BooksTableSeeder extends Seeder
             'number' => '5'
         ]);
 
+        Book::create([
+            'user_id' => '5',
+            'shop_id' => '6',
+            'date' => '2024-2-01',
+            'time' => '11:00:00',
+            'number' => '2'
+        ]);
     }
 }

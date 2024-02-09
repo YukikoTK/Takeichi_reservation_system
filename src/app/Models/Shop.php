@@ -17,32 +17,40 @@ class Shop extends Model
         'img'
     ];
 
-
     // booksテーブルとのリレーションを構築
-     public function books(){
+    public function books()
+    {
         return $this->hasMany(Book::class);
     }
 
     // likesテーブルとのリレーションを構築
-     public function likes(){
+    public function likes()
+    {
         return $this->hasMany(Like::class);
     }
 
     // areasテーブルとのリレーションを構築
-     public function area()
-     {
+    public function area()
+    {
         return $this->belongsTo(Area::class);
-     }
+    }
 
      // genresテーブルとのリレーションを構築
-     public function genre()
-     {
+    public function genre()
+    {
         return $this->belongsTo(Genre::class);
-     }
+    }
 
      // reviewsテーブルとのリレーションを構築
-     public function reviews(){
+    public function reviews()
+    {
         return $this->hasMany(Review::class);
+    }
+
+    // averagesテーブルとのリレーションを構築
+    public function average()
+    {
+        return $this->hasOne(Average::class);
     }
 
 }

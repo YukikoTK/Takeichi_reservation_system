@@ -1,0 +1,112 @@
+.main_content {
+    background-color: #F5F5F5;
+    padding: 50px;
+}
+
+@media screen and (max-width: 480px) {
+    .main_content {
+        padding: 50px 0px;
+    }
+}
+
+.title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btn_create {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table_inner {
+    margin: auto;
+    width: 80%;
+}
+
+@media screen and (max-width: 480px) {
+    .table_inner {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .table_inner {
+        width: 100%;
+    }
+}
+
+.table_inner-head,
+.table_inner-data {
+    padding: 10px 10px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .userId,
+    .list {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .table_inner-head,
+    .table_inner-data {
+        padding: 10px 3px;
+        font-size: 18px;
+    }
+}
+
+/* ページネーション */
+.pagination {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li {
+    padding: 10px;
+    text-align: center;
+}
+
+/* 戻るボタン */
+.return_button {
+    padding: 10px;
+    width: 30%;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.button {
+    text-align: center;
+    margin: 30px auto;
+    width: 70%;
+}
+
+@media screen and (max-width: 768px) {
+    .button {
+        width: 90%;
+    }
+}
+
+.show_button {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .show_button {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .show_button {
+        font-size: 8px;
+    }
+}

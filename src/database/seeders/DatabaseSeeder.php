@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LikesTableSeeder::class);
         $this->call(BooksTableSeeder::class);
         $this->call(ReviewsTableSeeder::class);
+        $this->call(AveragesTableSeeder::class);
     }
 }

@@ -13,10 +13,9 @@ class Area extends Model
         'area'
     ];
 
-
     // shopsテーブルとのリレーションを構築
-     public function shops()
-     {
+    public function shops()
+    {
         return $this->hasMany(Shop::class);
-     }
+    }
 }
