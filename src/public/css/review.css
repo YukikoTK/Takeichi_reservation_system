@@ -24,6 +24,12 @@
     border-right: 1px solid #C0C0C0;
 }
 
+@media screen and (max-width: 900px) {
+    .shop_inner {
+        border-right: none;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .shop_inner {
         margin: auto;

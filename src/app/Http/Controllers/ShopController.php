@@ -9,6 +9,7 @@ use App\Models\Book;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Review;
+use App\Models\Average;
 use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
@@ -28,7 +29,7 @@ class ShopController extends Controller
         } elseif ($sortMethod === 'low_to_high') {
             $shops = Shop::leftJoin('averages', 'shops.id', '=', 'averages.shop_id')
             ->select('shops.*', 'averages.average')
-            ->orderBy('averages.average')
+            ->orderByRaw('averages.average IS NULL, averages.average ASC')
             ->get();
         } else {
             $shops = Shop::with('average')->get();

@@ -19,6 +19,9 @@ class CsvImportController extends Controller
   {
     $file = request()->file('csvdata');
 
+    if ($file->getClientOriginalExtension() !== 'csv') {
+      return redirect(route('csv'))->withErrors('CSVファイルを選択してください');
+    }
     try {
           Excel::import(new ShopImport, $request->file('csvdata'));
           $message = 'インポートに成功しました。';

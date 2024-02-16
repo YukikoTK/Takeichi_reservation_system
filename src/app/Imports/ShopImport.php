@@ -19,16 +19,37 @@ class ShopImport implements ToCollection, WithStartRow
 
     public function collection(Collection $rows)
     {
+        if ($rows->isEmpty()) {
+            $validator = Validator::make([], [
+                '*.0' => ['required'],
+                '*.1' => ['required'],
+                '*.2' => ['required'],
+                '*.3' => ['required'],
+                '*.4' => ['required'],
+            ]);
+
+            $validator->after(function ($validator) {
+                $validator->errors()->add('empty', 'CSVファイルにデータがありません。');
+            });
+
+            throw new \Illuminate\Validation\ValidationException($validator);
+        }
+
         Validator::make($rows->toArray(), [
             '*.0' => ['required','numeric'],
             '*.1' => ['required','numeric'],
             '*.2' => ['required','string','max:50'],
             '*.3' => ['required','string','max:400'],
             '*.4' => ['required','string','regex:/\.(jpg|png)$/i'],
+        ], [], [
+            '*.0' => 'area_id',
+            '*.1' => 'genre_id',
+            '*.2' => 'shop',
+            '*.3' => 'detail',
+            '*.4' => 'img',
         ])->validate();
 
         foreach ($rows as $row) {
-
             $imageUrl = $row[4];
             $contents = Http::get($imageUrl)->body();
             $fileName = basename($imageUrl);
