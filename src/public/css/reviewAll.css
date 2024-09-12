@@ -134,20 +134,30 @@
     color: #0051FF;
     height: 25px;
     font-size: 15px;
+    z-index: 1;
+}
+
+.star_rating-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    color: #C0C0C0;
+    height: 25px;
+    font-size: 15px;
+    z-index: 0;
 }
 
 @media screen and (max-width: 768px) {
-    .star_rating-front {
+    .star_rating-front,
+    .star_rating-back {
         font-size: 10px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .star_rating-front {
+    .star_rating-front,
+    .star_rating-back {
         font-size: 10px;
     }
-}
-
-.star_rating-back {
-    color: #C0C0C0;
 }
