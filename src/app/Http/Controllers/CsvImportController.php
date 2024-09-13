@@ -19,6 +19,9 @@ class CsvImportController extends Controller
   {
     $file = request()->file('csvdata');
 
+    if (!$file) {
+      return redirect(route('csv'))->withErrors('CSVファイルを添付してください');
+    }
     if ($file->getClientOriginalExtension() !== 'csv') {
       return redirect(route('csv'))->withErrors('CSVファイルを選択してください');
     }
